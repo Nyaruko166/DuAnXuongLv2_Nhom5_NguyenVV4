@@ -1,6 +1,6 @@
 # Nhóm 5 Bán Quần Áo Nam Siêu Chiến
 
-Web bán quần áo nam sử dụng Framework Spring Boot
+Web bán quần áo nam sử dụng JSP và Framework Spring Boot
 
 
 ## Thành Viên
