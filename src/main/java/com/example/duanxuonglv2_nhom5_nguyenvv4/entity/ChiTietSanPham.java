@@ -27,9 +27,6 @@ public class ChiTietSanPham {
     @Column(name = "ma")
     private String ma;
 
-    @Column(name = "anh")
-    private String anh;
-
     @Column(name = "moTa")
     private String moTa;
 

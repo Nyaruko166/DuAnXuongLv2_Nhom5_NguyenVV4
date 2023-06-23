@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
 package com.example.duanxuonglv2_nhom5_nguyenvv4.entity;
 
 import jakarta.persistence.*;
@@ -62,7 +66,7 @@ public class HoaDon {
     private NhanVien nhanVien;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idKhachHang", referencedColumnName = "id")
+    @JoinColumn(name = "idTaiKhoan", referencedColumnName = "id")
     private TaiKhoan taiKhoan;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -10,37 +10,35 @@ import lombok.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "gioHang")
+@Table(name = "anh")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class GioHang {
+public class Anh {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "ma")
-    private String ma;
+    @Column(name = "ten")
+    private String ten;
+
+    @Column(name = "duongDan")
+    private String duongDan;
 
     @Column(name = "ngayTao")
     private Date ngayTao;
 
-    @Column(name = "ngayThanhToan")
+    @Column(name = "ngaySua")
     private Date ngaySua;
 
     @Column(name = "trangThai")
     private Integer trangThai;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idTaiKhoan", referencedColumnName = "id")
-    private TaiKhoan taiKhoan;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idNhanVien", referencedColumnName = "id")
-    private NhanVien nhanVien;
-
+    @JoinColumn(name = "idChiTietSanPham", referencedColumnName = "id")
+    private ChiTietSanPham chiTietSanPham;
 }
