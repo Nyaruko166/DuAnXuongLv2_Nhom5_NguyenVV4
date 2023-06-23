@@ -17,13 +17,22 @@ public class DiaChi {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "diaChi")
-    private String diaChi;
+    @Column(name = "tinhThanh")
+    private String tinhThanh;
 
-    @Column(name = "soDienThoai")
-    private String soDienThoai;
+    @Column(name = "quanHuyen")
+    private String quanHuyen;
+
+    @Column(name = "phuongXa")
+    private String phuongXa;
+
+    @Column(name = "diaChiCuThe")
+    private String diaChiCuThe;
 
     @Column(name = "trangThaiMacDinh")
     private Integer trangThaiMacDinh;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idTaiKhoan", referencedColumnName = "id")
+    private TaiKhoan taiKhoan;
 }

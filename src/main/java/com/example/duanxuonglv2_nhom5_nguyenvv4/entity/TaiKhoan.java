@@ -6,13 +6,13 @@ import lombok.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "khachHang")
+@Table(name = "taiKhoan")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class KhachHang {
+public class TaiKhoan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +28,15 @@ public class KhachHang {
     @Column(name = "ngaySinh")
     private Date ngaySinh;
 
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "soDienThoai")
+    private String soDienThoai;
+
+    @Column(name = "matKhau")
+    private String matKhau;
+
     @Column(name = "gioiTinh")
     private Boolean gioiTinh;
 
@@ -39,8 +48,4 @@ public class KhachHang {
 
     @Column(name = "trangThai")
     private Integer trangThai;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idDiaChi", referencedColumnName = "id")
-    private DiaChi diaChi;
 }
