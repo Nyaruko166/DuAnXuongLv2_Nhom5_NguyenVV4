@@ -1,0 +1,254 @@
+CREATE DATABASE DuAnXuongLv2_Nhom5_NguyenVV4
+GO 
+
+USE DuAnXuongLv2_Nhom5_NguyenVV4
+GO
+
+--UPDATE DATABASE 18/6/2023 21:40PM
+
+
+CREATE TABLE DiaChi(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	DiaChi NVARCHAR(MAX),
+	SoDienThoai VARCHAR(20),
+	TrangThaiMacDinh INT,
+);
+
+ 
+CREATE TABLE KhachHang(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgaySinh DATE,
+	GioiTinh BIT,
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+	IdDiaChi INT REFERENCES DiaChi(Id),
+);
+
+CREATE TABLE ChucVu(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(50),
+	TrangThai BIT,
+);
+ 
+CREATE TABLE NhanVien(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ho NVARCHAR(MAX),
+	TenDem NVARCHAR(MAX),
+	Ten NVARCHAR(MAX),
+	GioiTinh BIT,
+	NgaySinh DATE,
+	DiaChi NVARCHAR(MAX),
+	SoDienThoai VARCHAR(20),
+	Email VARCHAR(50),
+	MatKhau NVARCHAR(MAX),
+	TrangThai BIT,
+	IdChucVu INT REFERENCES ChucVu(Id),
+);
+
+
+CREATE TABLE SanPham(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+);
+
+ 
+CREATE TABLE LoaiSanPham(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai DATE,
+);
+
+ 
+CREATE TABLE KichCo(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+);
+
+ 
+CREATE TABLE FormDang(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ten NVARCHAR(MAX),
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+);
+
+ 
+CREATE TABLE ChatLieu(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+);
+
+ 
+CREATE TABLE MauSac(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+);
+
+ 
+CREATE TABLE ThietKe(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+);
+
+ 
+CREATE TABLE NSX(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+);
+
+
+CREATE TABLE Voucher(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayBatDau DATE,
+	NgayKetThuc DATE,
+	DonToiThieu MONEY,
+	GiamToiDa MONEY,
+	MucPhanTramGiam FLOAT,
+	MucGiamTienMat MONEY,
+	TrangThai BIT,
+);
+
+CREATE TABLE HinhThucThanhToan(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	KieuThanhToan NVARCHAR(50),
+	TrangThai BIT,
+);
+
+
+ 
+CREATE TABLE GiamGia(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Ten NVARCHAR(MAX),
+	NgayBatDau DATE,
+	NgayKetThuc DATE,
+	MucGiamPhanTram FLOAT,
+	MucGiamTienMat MONEY,
+	TrangThai BIT,
+);
+ 
+
+
+CREATE TABLE HoaDon(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	TongTien MONEY,
+	TenNguoiNhan NVARCHAR(MAX),
+	DiaChi NVARCHAR(MAX),
+	SoDienThoai VARCHAR(20),
+	GhiChu NVARCHAR(MAX),
+	NgayTao DATE,
+	NgayDatHang DATE,
+	NgayGiaoHang DATE,
+	NgayThanhToan DATE,
+	TrangThai BIT,
+	IdHinhThucThanhToan INT REFERENCES HinhThucThanhToan(Id),
+	IdNhanVien INT REFERENCES NhanVien(Id),
+	IdKhachHang INT REFERENCES KhachHang(Id),
+	IdVoucher INT REFERENCES Voucher(Id),
+);
+
+
+CREATE TABLE GioHang(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	NgayTao DATE,
+	NgayThanhToan DATE,
+	TrangThai BIT,
+	IdKhachHang INT REFERENCES KhachHang(Id),
+	IdNhanVien INT REFERENCES NhanVien(Id),
+);
+
+
+CREATE TABLE ChiTietSanPham(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Ma NVARCHAR(50),
+	Anh NVARCHAR(MAX),
+	MoTa NVARCHAR(MAX),
+	SoLuong INT,
+	GiaNhap MONEY,
+	GiaBan MONEY,
+	GiaSauKhiGiam MONEY,
+	NgayTao DATE,
+	NgaySua DATE,
+	TrangThai BIT,
+	IdChatLieu INT REFERENCES ChatLieu(Id),
+	IdSanPham INT REFERENCES SanPham(Id),
+	IdMauSac INT REFERENCES MauSac(Id),
+	IdLoaiSanPham INT REFERENCES LoaiSanPham(Id),
+	IdNSX INT REFERENCES NSX(Id),
+	IdKichCo INT REFERENCES KichCo(Id),
+	IdFormDang INT REFERENCES FormDang(Id),
+	IdThietKe INT REFERENCES ThietKe(Id),
+);
+
+
+ 
+CREATE TABLE GioHangChiTiet(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	SoLuong INT,
+	DonGia MONEY,
+	DonGiaKhiGiam MONEY,
+	IdGioHang INT REFERENCES GioHang(Id),
+	IdChiTietSanPham INT REFERENCES ChiTietSanPham(Id),
+);
+
+
+CREATE TABLE GiamGiaChiTiet(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	IdChiTietSanPham INT REFERENCES ChiTietSanPham(Id),
+	IdGiamGia INT REFERENCES GiamGia(Id),
+	TrangThai BIT,
+);
+
+ 
+CREATE TABLE HoaDonChiTiet(
+	Id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	SoLuong INT,
+	DonGia MONEY,
+	GiaBan MONEY,
+	ThanhTien MONEY,
+	TrangThai BIT,
+	IdHoaDon INT REFERENCES HoaDon(Id),
+	IdChiTietSanPham INT REFERENCES ChiTietSanPham(Id),
+);
+
+
+ 
+ 
