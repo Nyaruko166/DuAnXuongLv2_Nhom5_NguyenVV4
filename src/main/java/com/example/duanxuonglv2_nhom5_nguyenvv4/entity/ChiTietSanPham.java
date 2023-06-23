@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
 package com.example.duanxuonglv2_nhom5_nguyenvv4.entity;
 
 import jakarta.persistence.*;
@@ -77,4 +81,8 @@ public class ChiTietSanPham {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idThietKe", referencedColumnName = "id")
     private ThietKe thietKe;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idFormDang", referencedColumnName = "id")
+    private FormDang formDang;
 }
