@@ -29,12 +29,6 @@ public class GioHang {
     @Column(name = "ngayTao")
     private Date ngayTao;
 
-    @Column(name = "ngayThanhToan")
-    private Date ngayThanhToan;
-
-    @Column(name = "trangThai")
-    private Integer trangThai;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idTaiKhoan", referencedColumnName = "id")
     private TaiKhoan taiKhoan;
