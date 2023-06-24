@@ -30,16 +30,16 @@ public class HoaDon {
     @Column(name = "tongTien")
     private BigDecimal tongTien;
 
-    @Column(name = "tenNguoiNhan")
+    @Column(name = "tenNguoiNhan", columnDefinition = "nvarchar")
     private String tenNguoiNhan;
 
-    @Column(name = "diaChi")
+    @Column(name = "diaChi", columnDefinition = "nvarchar")
     private String diaChi;
 
     @Column(name = "soDienThoai")
     private String soDienThoai;
 
-    @Column(name = "ghiChu")
+    @Column(name = "ghiChu", columnDefinition = "nvarchar")
     private String ghiChu;
 
     @Column(name = "ngayTao")

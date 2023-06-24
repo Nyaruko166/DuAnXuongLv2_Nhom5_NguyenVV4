@@ -23,7 +23,7 @@ public class Anh {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "ten")
+    @Column(name = "ten", columnDefinition = "nvarchar")
     private String ten;
 
     @Column(name = "duongDan")

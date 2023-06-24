@@ -27,7 +27,7 @@ public class ChiTietSanPham {
     @Column(name = "ma")
     private String ma;
 
-    @Column(name = "moTa")
+    @Column(name = "moTa", columnDefinition = "nvarchar")
     private String moTa;
 
     @Column(name = "soLuong")

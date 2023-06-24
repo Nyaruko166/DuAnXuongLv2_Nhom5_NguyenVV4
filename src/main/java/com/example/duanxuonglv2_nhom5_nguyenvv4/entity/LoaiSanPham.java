@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
 package com.example.duanxuonglv2_nhom5_nguyenvv4.entity;
 
 import jakarta.persistence.*;
@@ -22,7 +26,7 @@ public class LoaiSanPham {
     @Column(name = "ma")
     private String ma;
 
-    @Column(name = "ten")
+    @Column(name = "ten", columnDefinition = "nvarchar")
     private String ten;
 
     @Column(name = "ngayTao")

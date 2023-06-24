@@ -30,7 +30,7 @@ public class GioHang {
     private Date ngayTao;
 
     @Column(name = "ngayThanhToan")
-    private Date ngaySua;
+    private Date ngayThanhToan;
 
     @Column(name = "trangThai")
     private Integer trangThai;

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
 package com.example.duanxuonglv2_nhom5_nguyenvv4.entity;
 
 import jakarta.persistence.*;
@@ -17,16 +21,16 @@ public class DiaChi {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "tinhThanh")
+    @Column(name = "tinhThanh", columnDefinition = "nvarchar")
     private String tinhThanh;
 
-    @Column(name = "quanHuyen")
+    @Column(name = "quanHuyen", columnDefinition = "nvarchar")
     private String quanHuyen;
 
-    @Column(name = "phuongXa")
+    @Column(name = "phuongXa", columnDefinition = "nvarchar")
     private String phuongXa;
 
-    @Column(name = "diaChiCuThe")
+    @Column(name = "diaChiCuThe", columnDefinition = "nvarchar")
     private String diaChiCuThe;
 
     @Column(name = "trangThaiMacDinh")
