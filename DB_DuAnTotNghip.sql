@@ -173,8 +173,6 @@ CREATE TABLE [dbo].[gio_hang](
     [id] [int] IDENTITY(1,1) NOT NULL,
     [ma] [varchar](255) NULL,
     [ngay_tao] [date] NULL,
-    [ngay_thanh_toan] [date] NULL,
-    [trang_thai] [int] NULL,
     [id_nhan_vien] [int] NULL,
     [id_tai_khoan] [int] NULL,
     PRIMARY KEY CLUSTERED
