@@ -110,7 +110,7 @@
             <div class="mb-3">
                 <form:label path="kichCo" class="form-label">Kích Cỡ:</form:label>
                 <form:select class="form-select" aria-label="Default select example" path="kichCo">
-                    <form:options items="${lstSP}" itemValue="id" itemLabel="ten"/>
+                    <form:options items="${lstKC}" itemValue="id" itemLabel="ten"/>
                 </form:select>
             </div>
         </div>
