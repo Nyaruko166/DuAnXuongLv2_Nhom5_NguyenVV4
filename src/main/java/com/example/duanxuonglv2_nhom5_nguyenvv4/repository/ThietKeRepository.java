@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ThietKeRepository extends JpaRepository<ThietKe, Integer> {
+
+    ThietKe findByTen(String ten);
+
 }

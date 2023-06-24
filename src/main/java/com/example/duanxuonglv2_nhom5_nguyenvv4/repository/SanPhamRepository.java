@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SanPhamRepository extends JpaRepository<SanPham, Integer> {
+
+    SanPham findByTen(String ten);
+
 }

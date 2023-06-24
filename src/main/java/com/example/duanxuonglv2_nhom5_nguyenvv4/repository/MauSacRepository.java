@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
 package com.example.duanxuonglv2_nhom5_nguyenvv4.repository;
 
 import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.MauSac;
@@ -6,4 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MauSacRepository extends JpaRepository<MauSac, Integer> {
+
+    MauSac findByTen(String ten);
+
 }

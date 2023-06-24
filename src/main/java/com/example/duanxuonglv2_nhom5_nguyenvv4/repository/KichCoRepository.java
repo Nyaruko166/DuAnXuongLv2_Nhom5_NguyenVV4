@@ -4,13 +4,13 @@
 
 package com.example.duanxuonglv2_nhom5_nguyenvv4.repository;
 
-import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.FormDang;
+import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.KichCo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FormDangRepository extends JpaRepository<FormDang, Integer> {
+public interface KichCoRepository extends JpaRepository<KichCo, Integer> {
 
-    FormDang findByTen(String ten);
+    KichCo findByTen(String ten);
 
 }
