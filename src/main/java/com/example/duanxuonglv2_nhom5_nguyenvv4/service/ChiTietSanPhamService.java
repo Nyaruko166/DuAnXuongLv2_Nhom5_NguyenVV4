@@ -31,4 +31,9 @@ public class ChiTietSanPhamService implements IChiTietSanPhamService {
     public void delete(ChiTietSanPham chiTietSanPham) {
         repository.delete(chiTietSanPham);
     }
+
+    @Override
+    public ChiTietSanPham detail(Integer id) {
+        return repository.findById(id).orElse(null);
+    }
 }

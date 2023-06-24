@@ -16,4 +16,6 @@ public interface IChiTietSanPhamService {
 
     void delete(ChiTietSanPham chiTietSanPham);
 
+     ChiTietSanPham detail(Integer id);
+
 }
