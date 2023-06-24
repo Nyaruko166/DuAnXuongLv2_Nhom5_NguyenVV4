@@ -14,6 +14,8 @@ public interface IChiTietSanPhamService {
 
     void save(ChiTietSanPham chiTietSanPham);
 
+    void saveAll(List<ChiTietSanPham> lstCTSP);
+
     void delete(ChiTietSanPham chiTietSanPham);
 
 }

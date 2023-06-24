@@ -31,4 +31,9 @@ public class ChiTietSanPhamService implements IChiTietSanPhamService {
     public void delete(ChiTietSanPham chiTietSanPham) {
         repository.delete(chiTietSanPham);
     }
+
+    @Override
+    public void saveAll(List<ChiTietSanPham> lstCTSP) {
+        repository.saveAll(lstCTSP);
+    }
 }

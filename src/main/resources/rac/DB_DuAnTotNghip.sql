@@ -2,6 +2,14 @@
  * Copyright (c) 2023. Nyaruko.
  */
 
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
 
 --CREATE DATABASE DuAnXuongLv2_Nhom5_NguyenVV4
 --GO

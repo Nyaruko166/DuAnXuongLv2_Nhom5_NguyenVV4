@@ -138,6 +138,15 @@
         <a href="http://localhost:25565/ctsp" class="btn btn-success">Reset</a>
     </div>
 </form:form>
+<form action="/ctsp/excel/import" method="post" enctype="multipart/form-data" class="container">
+    <div class="mb-3">
+        <label for="excel" class="form-label">Excel:</label>
+        <input type="file" class="form-control" id="excel" name="excel" value="hate my life">
+    </div>
+    <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-success">Import</button>
+    </div>
+</form>
 <section class="container">
 
     <c:if test="${not empty mess}">
