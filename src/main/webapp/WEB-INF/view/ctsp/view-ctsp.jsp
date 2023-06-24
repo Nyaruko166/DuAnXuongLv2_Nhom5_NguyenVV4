@@ -1,7 +1,7 @@
 <%--
   ~ Copyright (c) 2023. Nyaruko.
   --%>
-
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -14,24 +14,130 @@
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-<%--<form action="/ctsp/add" method="post" class="container">--%>
-<%--    <div class="mb-3">--%>
-<%--        <label for="id" class="form-label">ID:</label>--%>
-<%--        <input type="text" class="form-control" id="id" name="id">--%>
-<%--    </div>--%>
-<%--    <div class="mb-3">--%>
-<%--        <label for="ten" class="form-label">Tên:</label>--%>
-<%--        <input type="text" class="form-control" id="ten" name="ten">--%>
-<%--    </div>--%>
-<%--    <div class="mb-3">--%>
-<%--        <label for="diem" class="form-label">Điểm:</label>--%>
-<%--        <input type="text" class="form-control" id="diem" name="diem">--%>
-<%--    </div>--%>
-<%--    <div class="col-md-12 text-center">--%>
-<%--        <button type="submit" class="btn btn-success">Thêm</button>--%>
-<%--        <a href="http://localhost:27325" class="btn btn-success">Trang Chủ</a>--%>
-<%--    </div>--%>
-<%--</form>--%>
+<h1 class="text-center">Chi Tiết Sản Phẩm</h1>
+<form:form method="post" action="/ctsp/add" modelAttribute="ctsp" class="container">
+    <div class="mb-3">
+        <form:label path="ma" class="form-label">Mã:</form:label>
+        <form:input path="ma" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <form:label path="moTa" class="form-label">Mô Tả:</form:label>
+        <form:input path="moTa" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <form:label path="soLuong" class="form-label">Số Lượng:</form:label>
+        <form:input path="soLuong" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <form:label path="giaNhap" class="form-label">Giá Nhập:</form:label>
+        <form:input path="giaNhap" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <form:label path="giaBan" class="form-label">Giá Bán:</form:label>
+        <form:input path="giaBan" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <form:label class="form-label" path="trangThai">Trạng Thái:</form:label>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-check">
+                    <form:radiobutton name="flexRadioDefault" id="flexRadioDefault1" class="form-check-input"
+                                      path="trangThai"
+                                      value="1" checked="true"/>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Còn Hoạt Động
+                    </label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-check">
+                    <form:radiobutton name="flexRadioDefault" id="flexRadioDefault2" class="form-check-input"
+                                      path="trangThai"
+                                      value="0"/>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Ngừng Hoạt Động
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <form:label path="chatLieu" class="form-label">Chất Liệu:</form:label>
+                <form:select class="form-select" aria-label="Default select example" path="chatLieu">
+                    <form:options items="${lstCL}" itemValue="id" itemLabel="ten"/>
+                </form:select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <form:label path="sanPham" class="form-label">Sản Phẩm:</form:label>
+                <form:select class="form-select" aria-label="Default select example" path="sanPham">
+                    <form:options items="${lstSP}" itemValue="id" itemLabel="ten"/>
+                </form:select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <form:label path="mauSac" class="form-label">Màu Sắc:</form:label>
+                <form:select class="form-select" aria-label="Default select example" path="mauSac">
+                    <form:options items="${lstMS}" itemValue="id" itemLabel="ten"/>
+                </form:select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <form:label path="loaiSanPham" class="form-label">Loại Sản Phẩm:</form:label>
+                <form:select class="form-select" aria-label="Default select example" path="loaiSanPham">
+                    <form:options items="${lstLoai}" itemValue="id" itemLabel="ten"/>
+                </form:select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <form:label path="nsx" class="form-label">NSX:</form:label>
+                <form:select class="form-select" aria-label="Default select example" path="nsx">
+                    <form:options items="${lstNSX}" itemValue="id" itemLabel="ten"/>
+                </form:select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <form:label path="kichCo" class="form-label">Kích Cỡ:</form:label>
+                <form:select class="form-select" aria-label="Default select example" path="kichCo">
+                    <form:options items="${lstSP}" itemValue="id" itemLabel="ten"/>
+                </form:select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <form:label path="thietKe" class="form-label">Thiết Kế:</form:label>
+                <form:select class="form-select" aria-label="Default select example" path="thietKe">
+                    <form:options items="${lstTK}" itemValue="id" itemLabel="ten"/>
+                </form:select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <form:label path="formDang" class="form-label">Form Dáng:</form:label>
+                <form:select class="form-select" aria-label="Default select example" path="formDang">
+                    <form:options items="${lstFD}" itemValue="id" itemLabel="ten"/>
+                </form:select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-success">Thêm</button>
+        <a href="http://localhost:25565/ctsp" class="btn btn-success">Reset</a>
+    </div>
+</form:form>
 <section class="container">
 
     <c:if test="${not empty mess}">
