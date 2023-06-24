@@ -9,8 +9,6 @@ import com.example.duanxuonglv2_nhom5_nguyenvv4.repository.*;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.service.IChiTietSanPhamService;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,16 +18,19 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/ctsp")
@@ -104,12 +105,16 @@ public class ChiTietSanPhamConTroller {
 
     @PostMapping("/excel/import")
     public String importExcel(Model model, @RequestParam("excel") MultipartFile excelImport) throws IOException {
-        String fileName = StringUtils.cleanPath(excelImport.getOriginalFilename());
-        copyFile(excelImport, fileName);
-        String path = "./src/main/webapp/uploads/" + fileName;
-        List<ChiTietSanPham> lstCTSP = readExcel(path);
-        chiTietSanPhamService.saveAll(lstCTSP);
-        model.addAttribute("mess", "Import từ excel thành công!!");
+        if (validateExcel(excelImport)) {
+            String fileName = StringUtils.cleanPath(excelImport.getOriginalFilename());
+            copyFile(excelImport, fileName);
+            String path = "./src/main/webapp/uploads/" + fileName;
+            List<ChiTietSanPham> lstCTSP = readExcel(path);
+            chiTietSanPhamService.saveAll(lstCTSP);
+            model.addAttribute("mess", "Import từ excel thành công!!");
+        }else {
+            model.addAttribute("err", "File sai định dạng!!");
+        }
         return view(model);
     }
 
@@ -127,6 +132,10 @@ public class ChiTietSanPhamConTroller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public Boolean validateExcel(MultipartFile file) {
+        return Objects.equals(file.getContentType(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
     }
 
     public List<ChiTietSanPham> readExcel(String path) throws IOException {

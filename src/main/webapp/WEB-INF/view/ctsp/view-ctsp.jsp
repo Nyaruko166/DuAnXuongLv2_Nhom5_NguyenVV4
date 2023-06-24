@@ -141,7 +141,8 @@
 <form action="/ctsp/excel/import" method="post" enctype="multipart/form-data" class="container">
     <div class="mb-3">
         <label for="excel" class="form-label">Excel:</label>
-        <input type="file" class="form-control" id="excel" name="excel" value="hate my life">
+        <input type="file" class="form-control" id="excel" name="excel" value="hate my life"
+               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
     </div>
     <div class="col-md-12 text-center">
         <button type="submit" class="btn btn-success">Import</button>
@@ -152,6 +153,14 @@
     <c:if test="${not empty mess}">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>${mess}</strong>
+            <a class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+               style="margin: 0"></a>
+        </div>
+    </c:if>
+
+    <c:if test="${not empty err}">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>${err}</strong>
             <a class="btn-close" data-bs-dismiss="alert" aria-label="Close"
                style="margin: 0"></a>
         </div>
