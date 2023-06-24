@@ -33,6 +33,11 @@ public class ChiTietSanPhamService implements IChiTietSanPhamService {
     }
 
     @Override
+    public ChiTietSanPham detail(Integer id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    @Override
     public void saveAll(List<ChiTietSanPham> lstCTSP) {
         repository.saveAll(lstCTSP);
     }
