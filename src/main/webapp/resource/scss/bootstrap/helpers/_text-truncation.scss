@@ -1,0 +1,11 @@
+/*!
+ * Copyright (c) 2023. Nyaruko.
+ */
+
+//
+// Text truncation
+//
+
+.text-truncate {
+  @include text-truncate();
+}

@@ -1,0 +1,13 @@
+/*!
+ * Copyright (c) 2023. Nyaruko.
+ */
+
+// Container mixins
+
+@mixin make-container($gutter: $container-padding-x) {
+  width: 100%;
+  padding-right: var(--#{$variable-prefix}gutter-x, #{$gutter});
+  padding-left: var(--#{$variable-prefix}gutter-x, #{$gutter});
+  margin-right: auto;
+  margin-left: auto;
+}

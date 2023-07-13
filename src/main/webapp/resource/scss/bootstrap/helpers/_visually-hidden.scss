@@ -1,0 +1,12 @@
+/*!
+ * Copyright (c) 2023. Nyaruko.
+ */
+
+//
+// Visually hidden
+//
+
+.visually-hidden,
+.visually-hidden-focusable:not(:focus) {
+  @include visually-hidden();
+}

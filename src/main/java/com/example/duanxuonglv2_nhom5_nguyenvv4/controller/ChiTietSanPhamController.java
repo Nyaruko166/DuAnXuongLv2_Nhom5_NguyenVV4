@@ -34,7 +34,7 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/ctsp")
-public class ChiTietSanPhamConTroller {
+public class ChiTietSanPhamController {
 
     @Autowired
     private IChiTietSanPhamService chiTietSanPhamService;
@@ -85,7 +85,7 @@ public class ChiTietSanPhamConTroller {
         model.addAttribute("lstSP", lstSP);
         model.addAttribute("lstTK", lstTK);
         model.addAttribute("lstCTSP", lstCTSP);
-        return "ctsp/view-ctsp";
+        return "quan-tri/ctsp/view-ctsp";
     }
 
     @PostMapping("/add")
