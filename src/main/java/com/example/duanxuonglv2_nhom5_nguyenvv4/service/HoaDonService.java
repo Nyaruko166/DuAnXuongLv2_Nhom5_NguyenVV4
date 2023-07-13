@@ -13,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class HoaDonService implements IHoaDonService {
 
@@ -30,5 +32,10 @@ public class HoaDonService implements IHoaDonService {
     @Override
     public Page<HoaDonChiTiet> getAllHoaDonChiTiet(Pageable pageable) {
         return hdctRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<HoaDonChiTiet> findAllByHoaDon_Id(Integer id) {
+        return hdctRepository.findAllByHoaDon_Id(id);
     }
 }

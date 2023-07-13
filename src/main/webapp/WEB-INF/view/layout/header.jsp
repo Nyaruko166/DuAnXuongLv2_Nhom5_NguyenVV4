@@ -19,13 +19,13 @@
                 <!-- Logo icon -->
                 <b class="logo-icon">
                     <!-- Dark Logo icon -->
-                    <img src="resource/plugins/images/logo-icon.png" alt="homepage"/>
+                    <img src="/resource/plugins/images/logo-icon.png" alt="homepage"/>
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
                 <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="resource/plugins/images/logo-text.png" alt="homepage"/>
+                            <img src="/resource/plugins/images/logo-text.png" alt="homepage"/>
                         </span>
             </a>
             <!-- ============================================================== -->
@@ -68,7 +68,7 @@
                 <!-- ============================================================== -->
                 <li>
                     <a class="profile-pic" href="#">
-                        <img src="resource/plugins/images/users/admin.png" alt="user-img" width="36" height="36"
+                        <img src="/resource/plugins/images/users/admin.png" alt="user-img" width="36" height="36"
                              class="img-circle"><span class="text-white font-medium">Nyaruko166</span></a>
                 </li>
                 <!-- ============================================================== -->

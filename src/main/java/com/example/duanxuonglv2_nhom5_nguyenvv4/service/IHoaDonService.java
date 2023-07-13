@@ -9,9 +9,12 @@ import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.HoaDonChiTiet;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface IHoaDonService {
 
     Page<HoaDon> getAllHoaDon(Pageable pageable);
     Page<HoaDonChiTiet> getAllHoaDonChiTiet(Pageable pageable);
 
+    List<HoaDonChiTiet> findAllByHoaDon_Id(Integer id);
 }
