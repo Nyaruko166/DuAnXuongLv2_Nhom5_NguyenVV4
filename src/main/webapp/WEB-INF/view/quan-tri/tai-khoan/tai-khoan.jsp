@@ -22,9 +22,9 @@
     <title>Hoá Đơn</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/"/>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/resource/plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resource/plugins/images/favicon.png">
     <!-- Custom CSS -->
-    <link href="/resource/css/style.min.css" rel="stylesheet">
+    <link href="resource/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,7 +62,7 @@
         <div class="page-breadcrumb bg-white">
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Quản Trị Hoá Đơn</h4>
+                    <h4 class="page-title">Quản Trị Tài Khoản</h4>
                 </div>
             </div>
             <!-- /.col-lg-12 -->
@@ -87,46 +87,55 @@
                                 <thead>
                                 <tr>
                                     <th class="border-top-0">#</th>
-                                    <th class="border-top-0">Tên Sản Phẩm</th>
-                                    <th class="border-top-0">Số Lượng</th>
-                                    <th class="border-top-0">Đơn Giá</th>
-                                    <th class="border-top-0">Giá Bán</th>
-                                    <th class="border-top-0">Thành Tiền</th>
+                                    <th class="border-top-0">Tên</th>
+                                    <th class="border-top-0">Ngày Sinh</th>
+                                    <th class="border-top-0">Email</th>
+                                    <th class="border-top-0">SĐT</th>
+                                    <th class="border-top-0">Giới Tính</th>
+                                    <th class="border-top-0">Ngày Tạo</th>
+                                    <th class="border-top-0">Trạng Thái</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${lstHDCT}" var="x" varStatus="y">
+                                <c:forEach items="${page.getContent()}" var="x" varStatus="y">
                                     <tr>
                                         <td>${y.count}</td>
-                                        <td>${x.chiTietSanPham.sanPham.ten}</td>
-                                        <td>${x.soLuong}</td>
-                                        <td>${x.donGia}</td>
-                                        <td>${x.giaBan}</td>
-                                        <td>${x.thanhTien}</td>
+                                        <td>${x.ten}</td>
+                                        <td>${x.ngaySinh}</td>
+                                        <td>${x.email}</td>
+                                        <td>${x.soDienThoai}</td>
+                                        <c:if test="${x.gioiTinh}">
+                                            <td>Nam</td>
+                                        </c:if>
+                                        <c:if test="${not x.gioiTinh}">
+                                            <td>Nữ</td>
+                                        </c:if>
+                                        <td>${x.ngayTao}</td>
+                                        <td>${x.trangThai}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
                         </div>
-                        <%--                        <nav aria-label="Page navigation example">--%>
-                        <%--                            <ul class="pagination justify-content-end">--%>
-                        <%--                                <li class="page-item ${page.getNumber() + 1 > 1 ? '' : 'disabled'}">--%>
-                        <%--                                    <a class="page-link" href="?page=${page.getNumber()}">Previous</a>--%>
-                        <%--                                </li>--%>
-                        <%--                                <li class="page-item"><p class="page-link">${page.getNumber() + 1}--%>
-                        <%--                                    / ${page.getTotalPages()}</p></li>--%>
-                        <%--                                &lt;%&ndash;            <c:forEach begin="0" end="${page.totalPages -1}" varStatus="loop">&ndash;%&gt;--%>
-                        <%--                                &lt;%&ndash;                <li class="page-item">&ndash;%&gt;--%>
-                        <%--                                &lt;%&ndash;                    <a class="page-link" href="?page=${loop.begin + loop.count}">&ndash;%&gt;--%>
-                        <%--                                &lt;%&ndash;                            ${loop.begin + loop.count }&ndash;%&gt;--%>
-                        <%--                                &lt;%&ndash;                    </a>&ndash;%&gt;--%>
-                        <%--                                &lt;%&ndash;                </li>&ndash;%&gt;--%>
-                        <%--                                &lt;%&ndash;            </c:forEach>&ndash;%&gt;--%>
-                        <%--                                <li class="page-item ${page.getNumber() + 1 lt page.getTotalPages() ? '' : 'disabled'}">--%>
-                        <%--                                    <a class="page-link" href="?page=${page.getNumber() + 2}">Next</a>--%>
-                        <%--                                </li>--%>
-                        <%--                            </ul>--%>
-                        <%--                        </nav>--%>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item ${page.getNumber() + 1 > 1 ? '' : 'disabled'}">
+                                    <a class="page-link" href="?page=${page.getNumber()}">Previous</a>
+                                </li>
+                                <li class="page-item"><p class="page-link">${page.getNumber() + 1}
+                                    / ${page.getTotalPages()}</p></li>
+                                <%--            <c:forEach begin="0" end="${page.totalPages -1}" varStatus="loop">--%>
+                                <%--                <li class="page-item">--%>
+                                <%--                    <a class="page-link" href="?page=${loop.begin + loop.count}">--%>
+                                <%--                            ${loop.begin + loop.count }--%>
+                                <%--                    </a>--%>
+                                <%--                </li>--%>
+                                <%--            </c:forEach>--%>
+                                <li class="page-item ${page.getNumber() + 1 lt page.getTotalPages() ? '' : 'disabled'}">
+                                    <a class="page-link" href="?page=${page.getNumber() + 2}">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -156,12 +165,12 @@
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
 </div>
-<script src="/resource/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/resource/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/resource/s/app-style-switcher.js"></script>
-<script src="/resource/js/waves.js"></script>
-<script src="/resource/js/sidebarmenu.js"></script>
-<script src="/resource/js/custom.js"></script>
+<script src="resource/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="resource/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="resource/s/app-style-switcher.js"></script>
+<script src="resource/js/waves.js"></script>
+<script src="resource/js/sidebarmenu.js"></script>
+<script src="resource/js/custom.js"></script>
 <script src="https://kit.fontawesome.com/1943ac9f5b.js" crossorigin="anonymous"></script>
 </body>
 
