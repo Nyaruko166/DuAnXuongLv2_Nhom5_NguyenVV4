@@ -112,13 +112,14 @@
                         <span class="hide-menu">Tài Khoản</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/country"
-                       aria-expanded="false">
-                        <i class="fa-solid fa-earth-africa"></i>
-                        <span class="hide-menu">Thống kê quốc gia</span>
-                    </a>
-                </li>
+                <%--                Mẫu thêm tab vào side bar--%>
+                <%--                <li class="sidebar-item">--%>
+                <%--                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/country"--%>
+                <%--                       aria-expanded="false">--%>
+                <%--                        <i class="fa-solid fa-earth-africa"></i>--%>
+                <%--                        <span class="hide-menu">Thống kê quốc gia</span>--%>
+                <%--                    </a>--%>
+                <%--                </li>--%>
             </ul>
 
         </nav>
