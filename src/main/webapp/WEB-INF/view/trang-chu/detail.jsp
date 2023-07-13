@@ -1369,7 +1369,7 @@
                     <ul class="menu__list">
                         <li class="menu__item menu__item--active">
                             <a href="#" class="menu__link">
-                                <img src="https://routine.vn/media/catalog/product/cache/d0cf4470db45e8932c69fc124d711a7e/1/0/10s23psh021-beige-blue-quan-short-nam_1__1.jpg" alt=""  class="menu__item-icon" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
+                                <img src="https://routine.vn/media/catalog/product/cache/d0cf4470db45e8932c69fc124d711a7e/1/0/10s23psh021-beige-blue-quan-short-nam_1__1.jpg" alt=""  class="menu__item-icon"  enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
                                 Quần </a>
                         </li>
                         <li class="menu__item">
@@ -1380,40 +1380,17 @@
 
                     </ul>
                 </nav>
-
-                <div class="slider col-lg-9 col-md-12 col-sm-0">
-                    <div class="row">
-                        <div class="slide__left col-lg-8 col-md-0 col-sm-0">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="https://routine.vn/media/catalog/category/thoi-trang-nam-mung-sinh-nhat-routine-10-tuoi.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
     <!-- end slide menu list -->
     <!-- score-top-->
 
-    <div class="row">
+    <div class="row container" style="margin-top: 30px">
 
         <div class="product__main-img col-lg-4 col-md-4 col-sm-12">
             <div class="product__main-img-primary">
-                <img src="https://routine.vn/media/catalog/product/cache/d0cf4470db45e8932c69fc124d711a7e/a/o/ao-polo-nam-10s23pol063_evegreen_3__1.jpg">
+                <img style="width: 75%;margin-left: 90px;" src="https://routine.vn/media/catalog/product/cache/d0cf4470db45e8932c69fc124d711a7e/a/o/ao-polo-nam-10s23pol063_evegreen_3__1.jpg">
             </div>
 
         </div>
@@ -1432,38 +1409,58 @@
             </div>
 
             <div class="product__main-info-price">
+                                <span class="product__main-info-price-current" style="color: black;font-size: medium">
+                                   Tên Sản Phẩm: ${ctsp.sanPham.ten}-${ctsp.sanPham.ma}
+                                </span>
+            </div>
+
+            <br>
+            <br>
+            <div class="product__main-info-price">
                                 <span class="product__main-info-price-current" >
                                   ${ctsp.giaBan}đ
                                 </span>
             </div>
+
+            <br> <br>
             <div class="product__main-info-price">
                                 <span class="product__main-info-price-current" style="color: black;font-size: medium">
                                    Chất Liệu: ${ctsp.chatLieu.ten}
                                 </span>
             </div>
-
+            <br>
             <div class="product__main-info-price">
                                 <span class="product__main-info-price-current" style="color: black;font-size: medium">
                                   Form Dáng: ${ctsp.formDang.ten}
                                 </span>
             </div>
 
+            <br>
+
             <div class="product__main-info-price">
-                                <span class="product__main-info-price-current" style="color: black;font-size: medium">
-                                   Tên Sản Phẩm: ${ctsp.sanPham.ten}
-                                </span>
+                <label style="font-weight: 500;
+    font-size: 16px;" for="size">Size:</label>
+                <select style="font-size: 17px" id="size" name="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
             </div>
 
-            <div class="product__main-info-description">
-                Trong gần một thế kỷ qua, nhiều nhà giáo dục đã tiến hành nghiên cứu và ghi nhận về những lợi ích của việc học tập qua trải nghiệm, thực hành, và lấy người học làm trung tâm. Nhà bác học Albert Einste...
+            <br>
+
+            <div class="product__main-info-price">
+                <label  style="font-weight: 500;
+    font-size: 16px;" for="quantity">Số lượng:</label>
+                <input type="number" style="font-size: 17px" id="quantity" name="quantity" min="1" max="100">
             </div>
 
-            <div class="product__main-info-cart">
-                <!--<div class="product__main-info-cart-quantity">
-                    <input type="button" value="-"  class="product__main-info-cart-quantity-minus">
-                    <input type="number" step="1" min="1" max="999" value="1" class="product__main-info-cart-quantity-total">
-                    <input type="button" value="+" class="product__main-info-cart-quantity-plus">
-                </div>-->
+            <br>
+
+
+
+
+            <div class="product__main-info-cart" style="display: flex">
 
                 <div class="product__main-info-cart-btn-wrap">
                     <button class="product__main-info-cart-btn">
@@ -1494,7 +1491,42 @@
                 </div>
 
             </div>
+            <div class="product__main-info-contact" >
+                <ul class="product-info-feature" style="display: flex">
+                    <li>
+                        <div class="icon"><img src="https://routine.vn/static/version1687799448/frontend/Magenest/routine/vi_VN/images/ghn.png" alt="Giao hàng nhanh"></div>
+                        <div class="text"><strong>Giao hàng nhanh</strong>
+                            <p>Từ 2 - 5 ngày</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon"><img src="https://routine.vn/static/version1687799448/frontend/Magenest/routine/vi_VN/images/free.png" alt="Freeship toàn quốc từ 399k"></div>
+                        <div class="text"><strong>Miễn phí vận chuyển</strong>
+                            <p>Đơn hàng từ 399K</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon"><img src="https://routine.vn/static/version1687799448/frontend/Magenest/routine/vi_VN/images/order.png" alt="Theo dõi đơn hàng dễ dàng"></div>
+                        <div class="text"><strong>Theo dõi đơn hàng <br>một cách dễ dàng</strong></div>
+                    </li>
+                    <li>
+                        <div class="icon"><img src="https://routine.vn/static/version1687799448/frontend/Magenest/routine/vi_VN/images/returns.png" alt="Đổi trả tận nơi"></div>
+                        <div class="text"><strong>Đổi trả linh hoạt</strong>Với sản phẩm sale &lt; 30%</div>
+                    </li>
+                    <li>
+                        <div class="icon"><img src="https://routine.vn/static/version1687799448/frontend/Magenest/routine/vi_VN/images/pay.png" alt="Thanh toán dễ dàng"></div>
+                        <div class="text"><strong>Thanh toán dễ dàng <br>nhiều hình thức</strong></div>
+                    </li>
+                    <li>
+                        <div class="icon"><img src="https://routine.vn/static/version1687799448/frontend/Magenest/routine/vi_VN/images/hotline.png" alt="Hotline hỗ trợ Routine"></div>
+                        <div class="text"><strong>Hotline hỗ trợ</strong>
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">039 9999 365</font></font></h3>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
+
     </div>
     <!--end product -->
 

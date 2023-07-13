@@ -1457,12 +1457,12 @@
                     <ul class="menu__list">
                         <li class="menu__item menu__item--active">
                             <a href="#" class="menu__link">
-                                <img src="https://routine.vn/media/catalog/product/cache/d0cf4470db45e8932c69fc124d711a7e/1/0/10s23psh021-beige-blue-quan-short-nam_1__1.jpg" alt=""  class="menu__item-icon"  enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
+                                <img src="https://routine.vn/media/catalog/product/cache/d0cf4470db45e8932c69fc124d711a7e/1/0/10s23psh021-beige-blue-quan-short-nam_1__1.jpg" alt=""  class="menu__item-icon" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
                                 Quần </a>
                         </li>
                         <li class="menu__item">
                             <a href="#" class="menu__link">
-                                <img src="https://routine.vn/media/catalog/product/cache/5de180fdba0e830d350bd2803a0413e8/1/0/10s23tss079_black-ao-thun-nam_1__1.jpg" alt="" class="menu__item-icon"  enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
+                                <img src="https://routine.vn/media/catalog/product/cache/5de180fdba0e830d350bd2803a0413e8/1/0/10s23tss079_black-ao-thun-nam_1__1.jpg" alt="" class="menu__item-icon" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
                                 Áo</a>
                         </li>
 
@@ -1496,6 +1496,7 @@
     </section>
     <!-- end slide menu list -->
     <!-- score-top-->
+
 
     <!-- bestselling product -->
     <section class="bestselling">
@@ -1618,13 +1619,13 @@
                     <div class="row product__panel">
                         <c:forEach items="${lstCTSP}" var="ctsp">
 
-                        <div class="product__panel-item col-lg-3 col-md-4 col-sm-6" >
+                        <div class="product__panel-item col-lg-3 col-md-4 col-sm-6">
                             <div class="product__panel-item-wrap">
                                 <div class="product__panel-img-wrap">
                                     <img src="https://routine.vn/media/catalog/product/cache/d0cf4470db45e8932c69fc124d711a7e/a/o/ao-thun-nam-10s23tss047-black-_2_.jpg" alt="" class="product__panel-img">
                                 </div>
                                 <h3 class="product__panel-heading">
-                                    <a href="/trang-chu/detail/${ctsp.id}" class="product__panel-link">${ctsp.sanPham.ten}</a>
+                                    <a href="product.html" class="product__panel-link">${ctsp.sanPham.ten}</a>
                                 </h3>
                                 <div class="product__panel-rate-wrap">
                                     <i class="fas fa-star product__panel-rate"></i>
@@ -1635,9 +1636,11 @@
                                 </div>
 
                                 <div class="product__panel-price">
-
-                                    <span class="product__panel-price-current">
+                                    <span class="product__panel-price-old">
                                         ${ctsp.giaBan}đ
+                                    </span>
+                                    <span class="product__panel-price-current">
+                                        ${ctsp.giaNhap}đ
                                     </span>
                                 </div>
 
@@ -1943,6 +1946,5 @@
 
     <script src="js/jq.js"></script>
     <script src="js/index.js"></script>
-</div>
 </body>
 </html>
