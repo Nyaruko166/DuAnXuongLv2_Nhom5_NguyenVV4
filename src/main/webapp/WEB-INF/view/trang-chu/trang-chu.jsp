@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <a href="cart.html" class="col-lg-1 col-md-1 col-sm-0 header__cart">
+                    <a href="/gio-hang/hien-thi" class="col-lg-1 col-md-1 col-sm-0 header__cart">
                         <div class="header__cart-icon-wrap">
                             <span class="header__notice">4</span>
                             <i class="fas fa-shopping-cart header__nav-cart-icon"></i>
@@ -231,6 +231,9 @@
 
                             <div class="bestselling__product-btn-wrap">
                                 <a href="/trang-chu/detail/${ctsp.id}" class="bestselling__product-btn">Xem hàng</a>
+                            </div>
+                            <div class="bestselling__product-btn-wrap">
+                                <a href="/add-to-cart/${ctsp.id}" class="bestselling__product-btn">Thêm giỏ hàng</a>
                             </div>
                         </div>
                     </div>
@@ -583,6 +586,12 @@
                             </li>
                             <li class="footer__top-policy-item">
                                 <a href="#" class="footer__top-policy-link">Hướng dẫn sử dụng</a>
+                            </li>
+                            <li class="footer__top-policy-item">
+                                <a href="/hoa-don" class="footer__top-policy-link">Hoá đơn</a>
+                            </li>
+                            <li class="footer__top-policy-item">
+                                <a href="/tai-khoan" class="footer__top-policy-link">Tài khoản</a>
                             </li>
                         </ul>
                     </article>

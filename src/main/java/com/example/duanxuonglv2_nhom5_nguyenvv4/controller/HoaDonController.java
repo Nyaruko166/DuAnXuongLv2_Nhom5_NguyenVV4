@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/hoa-don")
@@ -38,6 +39,18 @@ public class HoaDonController {
         model.addAttribute("page", pageHD);
 
         return "quan-tri/hoa-don/hoa-don";
+    }
+
+    @GetMapping("/xac-nhan-don/{id}")
+    public String xacNhan(@PathVariable("id") Integer id){
+        hoaDonService.xacNhanHoaDon(id);
+        return "redirect:/hoa-don";
+    }
+
+    @GetMapping("/huy-don/{id}")
+    public String huyDon(@PathVariable("id") Integer id){
+        hoaDonService.huyHoaDon(id);
+        return "redirect:/hoa-don";
     }
 
     @GetMapping("/detail/{idHD}")

@@ -1,6 +1,6 @@
-<html lang="en">
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bootstrap Table with Search Column Feature</title>
     <link href="../../../resource/css/gio-hang.css">
@@ -52,81 +52,45 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                 <tr>
-                    <th>#</th>
-                    <th style="width: 22%;">Name</th>
-                    <th style="width: 22%;">Address</th>
-                    <th>City</th>
-                    <th>Pin Code</th>
-                    <th>Country</th>
-                    <th>Actions</th>
+                    <td>Tên sản phẩm</td>
+                    <td>Chất liệu</td>
+                    <td>Màu sắc</td>
+                    <td>loại SP</td>
+                    <td>NSX</td>
+                    <td>Kích cỡ</td>
+                    <td>Thiết kế</td>
+                    <td>Form dáng</td>
+                    <td>Số lượng</td>
+                    <td>Đơn giá</td>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Thomas Hardy</td>
-                    <td>89 Chiaroscuro Rd.</td>
-                    <td>Portland</td>
-                    <td>97219</td>
-                    <td>USA</td>
-                    <td>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Maria Anders</td>
-                    <td>Obere Str. 57</td>
-                    <td>Berlin</td>
-                    <td>12209</td>
-                    <td>Germany</td>
-                    <td>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Fran Wilson</td>
-                    <td>C/ Araquil, 67</td>
-                    <td>Madrid</td>
-                    <td>28023</td>
-                    <td>Spain</td>
-                    <td>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Dominique Perrier</td>
-                    <td>25, rue Lauriston</td>
-                    <td>Paris</td>
-                    <td>75016</td>
-                    <td>France</td>
-                    <td>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Martin Blank</td>
-                    <td>Via Monte Bianco 34</td>
-                    <td>Turin</td>
-                    <td>10100</td>
-                    <td>Italy</td>
-                    <td>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                    </td>
-                </tr>
+                <c:forEach items="${listItem}" var="gh">
+                    <tr>
+                        <td>${gh.tenSanPham}</td>
+                        <td>${gh.tenChatLieu}</td>
+                        <td>${gh.tenMauSac}</td>
+                        <td>${gh.tenLoaiSanPham}</td>
+                        <td>${gh.tenNsx}</td>
+                        <td>${gh.tenKichCo}</td>
+                        <td>${gh.tenThietKe}</td>
+                        <td>${gh.tenFormDang}</td>
+                        <td>${gh.soLuong}</td>
+                        <td>${gh.donGia}</td>
+                        <td>
+                            <a href="/gio-hang/remove-item/${gh.idCtsp}" class="btn btn-primary">Xoá</a>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
+            <c:if test="${!empty listItem}">
+                <h4>Tổng giá: ${tongGia}VNĐ</h4>
+                <a href="/gio-hang/dat-hang" class="btn btn-success">Đặt hàng</a>
+            </c:if>
         </div>
     </div>
 </div>

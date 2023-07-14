@@ -90,9 +90,10 @@
                                     <th class="border-top-0">Tên Người Nhận</th>
                                     <th class="border-top-0">Địa Chỉ</th>
                                     <th class="border-top-0">SĐT</th>
-                                    <th class="border-top-0">Ngày Thanh Toán</th>
+                                    <th class="border-top-0">Ngày Tạo</th>
                                     <th class="border-top-0">Tổng Tiền</th>
-                                    <th class="border-top-0">Chi Tiết</th>
+                                    <th class="border-top-0">Trạng thái</th>
+                                    <th class="border-top-0">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -102,11 +103,35 @@
                                         <td>${x.tenNguoiNhan}</td>
                                         <td>${x.diaChi}</td>
                                         <td>${x.soDienThoai}</td>
-                                        <td>${x.ngayThanhToan}</td>
+                                        <td>${x.ngayTao}</td>
                                         <td>${x.tongTien}</td>
-                                        <td><a href="/hoa-don/detail/${x.id}">
-                                            <i class="fa-solid fa-circle-info"></i>
-                                        </a></td>
+                                        <td>
+                                            <c:if test="${x.trangThai == 0}">
+                                                Chờ xác nhận
+                                            </c:if>
+                                            <c:if test="${x.trangThai == 1}">
+                                                Đã xác nhận
+                                            </c:if>
+                                            <c:if test="${x.trangThai == 10}">
+                                                Đã huỷ
+                                            </c:if>
+                                        </td>
+                                        <td>
+                                            <c:if test="${x.trangThai == 0}">
+                                                <a href="/hoa-don/xac-nhan-don/${x.id}" class="btn btn-primary">Xác
+                                                    nhận</a>
+                                                <a href="/hoa-don/huy-don/${x.id}" class="btn btn-primary">Huỷ
+                                                    đơn</a>
+                                                <a href="/hoa-don/detail/${x.id}">
+                                                    <i class="fa-solid fa-circle-info"></i>
+                                                </a>
+                                            </c:if>
+                                            <c:if test="${x.trangThai != 0}">
+                                                <a href="/hoa-don/detail/${x.id}">
+                                                    <i class="fa-solid fa-circle-info"></i>
+                                                </a>
+                                            </c:if>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

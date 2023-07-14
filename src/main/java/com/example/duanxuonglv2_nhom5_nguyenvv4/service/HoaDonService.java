@@ -38,4 +38,24 @@ public class HoaDonService implements IHoaDonService {
     public List<HoaDonChiTiet> findAllByHoaDon_Id(Integer id) {
         return hdctRepository.findAllByHoaDon_Id(id);
     }
+
+    @Override
+    public void save(HoaDon hoaDon) {
+        hoaDonRepository.save(hoaDon);
+    }
+
+    @Override
+    public void saveCT(HoaDonChiTiet hoaDonChiTiet) {
+        hdctRepository.save(hoaDonChiTiet);
+    }
+
+    @Override
+    public void xacNhanHoaDon(Integer id) {
+        hoaDonRepository.xacNhanHoaDon(id);
+    }
+
+    @Override
+    public void huyHoaDon(Integer id) {
+        hoaDonRepository.huyHoaDon(id);
+    }
 }
