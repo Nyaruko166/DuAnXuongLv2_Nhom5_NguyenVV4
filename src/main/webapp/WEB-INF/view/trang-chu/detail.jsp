@@ -1314,7 +1314,7 @@
                         </div>
                     </div>
 
-                    <a href="cart.html" class="col-lg-1 col-md-1 col-sm-0 header__cart">
+                    <a href="/gio-hang/hien-thi" class="col-lg-1 col-md-1 col-sm-0 header__cart">
                         <div class="header__cart-icon-wrap">
                             <span class="header__notice">4</span>
                             <i class="fas fa-shopping-cart header__nav-cart-icon"></i>
@@ -1463,11 +1463,11 @@
 
             <div class="product__main-info-cart" style="display: flex">
 
-                <div class="product__main-info-cart-btn-wrap">
+                <a href="/add-to-cart/${ctsp.id}" class="product__main-info-cart-btn-wrap">
                     <button class="product__main-info-cart-btn">
                         Thêm vào giỏ hàng
                     </button>
-                </div>
+                </a>
             </div>
 
             <div class="product__main-info-contact">

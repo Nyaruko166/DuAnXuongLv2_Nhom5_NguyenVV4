@@ -90,8 +90,6 @@
                                     <th class="border-top-0">Tên Sản Phẩm</th>
                                     <th class="border-top-0">Số Lượng</th>
                                     <th class="border-top-0">Đơn Giá</th>
-                                    <th class="border-top-0">Giá Bán</th>
-                                    <th class="border-top-0">Thành Tiền</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -101,8 +99,6 @@
                                         <td>${x.chiTietSanPham.sanPham.ten}</td>
                                         <td>${x.soLuong}</td>
                                         <td>${x.donGia}</td>
-                                        <td>${x.giaBan}</td>
-                                        <td>${x.thanhTien}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
