@@ -73,7 +73,7 @@
                                        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
                             </div>
                             <div class="col-6">
-                                <button type="submit"
+                                <button type="submit" title="Ấn vào để chọn file excel để import"
                                         class="btn btn-success">Import From Excel
                                 </button>
                             </div>
@@ -81,7 +81,7 @@
                     </form>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <a href="/ctsp/view-add" class="btn btn-info text-center">
+                    <a href="/ctsp/view-add" class="btn btn-info text-center" title="Ấn vào để chuyển sang trang tạo sản phẩm">
                         <i class="fa-solid fa-plus"></i>Tạo Sản Phẩm
                     </a>
                 </div>
