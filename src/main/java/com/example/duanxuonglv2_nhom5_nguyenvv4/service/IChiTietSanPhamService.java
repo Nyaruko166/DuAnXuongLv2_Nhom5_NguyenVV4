@@ -5,10 +5,14 @@
 package com.example.duanxuonglv2_nhom5_nguyenvv4.service;
 
 import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.ChiTietSanPham;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface IChiTietSanPhamService {
+
+    Page<ChiTietSanPham> getAllPage(Pageable pageable);
 
     List<ChiTietSanPham> getAll();
 

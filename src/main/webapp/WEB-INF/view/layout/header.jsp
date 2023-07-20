@@ -91,12 +91,38 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <!-- User Profile-->
-                <li class="sidebar-item pt-2">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/ctsp"
+                <li class="sidebar-item pt-2 nav-item dropdown dropend">
+
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link dropdown-toggle" role="button"
+                       data-bs-toggle="dropdown"
+                       href="#"
                        aria-expanded="false">
                         <i class="fa-solid fa-shirt"></i>
                         <span class="hide-menu">Chi Tiết Sản Phẩm</span>
                     </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                    <%--                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"--%>
+                    <%--                       aria-expanded="false">--%>
+                    <%--                        Dropdown--%>
+                    <%--                    </a>--%>
+                    <%--                    <ul class="dropdown-menu">--%>
+                    <%--                        <li><a class="dropdown-item" href="#">Action</a></li>--%>
+                    <%--                        <li><a class="dropdown-item" href="#">Another action</a></li>--%>
+                    <%--                        <li>--%>
+                    <%--                            <hr class="dropdown-divider">--%>
+                    <%--                        </li>--%>
+                    <%--                        <li><a class="dropdown-item" href="#">Something else here</a></li>--%>
+                    <%--                    </ul>--%>
+
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/hoa-don"

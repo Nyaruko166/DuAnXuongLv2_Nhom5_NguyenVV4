@@ -4,34 +4,22 @@
 
 package com.example.duanxuonglv2_nhom5_nguyenvv4.controller;
 
-import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.*;
+import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.ChiTietSanPham;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.repository.*;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.service.IChiTietSanPhamService;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.utils.ExcelUtil;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 @Controller
 @RequestMapping("/ctsp")
@@ -68,27 +56,31 @@ public class ChiTietSanPhamController {
     ExcelUtil excelUtil;
 
     @GetMapping
-    public String view(Model model) {
-        List<ChiTietSanPham> lstCTSP = chiTietSanPhamService.getAll();
-        List<ChatLieu> lstCL = chatLieuRepository.findAll();
-        List<FormDang> lstFD = formDangRepository.findAll();
-        List<KichCo> lstKC = kichCoRepository.findAll();
-        List<LoaiSanPham> lstLoai = loaiSanPhamRepository.findAll();
-        List<MauSac> lstMS = mauSacRepository.findAll();
-        List<NSX> lstNSX = nsxRepository.findAll();
-        List<SanPham> lstSP = sanPhamRepository.findAll();
-        List<ThietKe> lstTK = thietKeRepository.findAll();
-        model.addAttribute("ctsp", new ChiTietSanPham());
-        model.addAttribute("lstCL", lstCL);
-        model.addAttribute("lstFD", lstFD);
-        model.addAttribute("lstKC", lstKC);
-        model.addAttribute("lstLoai", lstLoai);
-        model.addAttribute("lstMS", lstMS);
-        model.addAttribute("lstNSX", lstNSX);
-        model.addAttribute("lstSP", lstSP);
-        model.addAttribute("lstTK", lstTK);
-        model.addAttribute("lstCTSP", lstCTSP);
-        return "quan-tri/ctsp/view-ctsp";
+    public String view(Model model, @RequestParam(value = "page", defaultValue = "1") int page) {
+        Page<ChiTietSanPham> pageCTSP;
+        if (page < 1) page = 1;
+        Pageable pageable = PageRequest.of(page - 1, 10);
+        pageCTSP = chiTietSanPhamService.getAllPage(pageable);
+
+        model.addAttribute("page", pageCTSP);
+//        List<ChatLieu> lstCL = chatLieuRepository.findAll();
+//        List<FormDang> lstFD = formDangRepository.findAll();
+//        List<KichCo> lstKC = kichCoRepository.findAll();
+//        List<LoaiSanPham> lstLoai = loaiSanPhamRepository.findAll();
+//        List<MauSac> lstMS = mauSacRepository.findAll();
+//        List<NSX> lstNSX = nsxRepository.findAll();
+//        List<SanPham> lstSP = sanPhamRepository.findAll();
+//        List<ThietKe> lstTK = thietKeRepository.findAll();
+//        model.addAttribute("ctsp", new ChiTietSanPham());
+//        model.addAttribute("lstCL", lstCL);
+//        model.addAttribute("lstFD", lstFD);
+//        model.addAttribute("lstKC", lstKC);
+//        model.addAttribute("lstLoai", lstLoai);
+//        model.addAttribute("lstMS", lstMS);
+//        model.addAttribute("lstNSX", lstNSX);
+//        model.addAttribute("lstSP", lstSP);
+//        model.addAttribute("lstTK", lstTK);
+        return "quan-tri/san-pham/ctsp";
     }
 
     @PostMapping("/add")
@@ -103,10 +95,10 @@ public class ChiTietSanPhamController {
         chiTietSanPhamService.save(ctsp);
 
         model.addAttribute("mess", "Thêm thành công!");
-        return view(model);
+        return "redirect:/ctsp";
     }
 
-    @PostMapping("/excel/import")
+    @PostMapping("/import")
     public String importExcel(Model model, @RequestParam("excel") MultipartFile excelImport) throws IOException {
         if (excelUtil.validateExcel(excelImport)) {
             String fileName = StringUtils.cleanPath(excelImport.getOriginalFilename());
@@ -118,6 +110,6 @@ public class ChiTietSanPhamController {
         } else {
             model.addAttribute("err", "File sai định dạng!!");
         }
-        return view(model);
+        return "redirect:/ctsp";
     }
 }

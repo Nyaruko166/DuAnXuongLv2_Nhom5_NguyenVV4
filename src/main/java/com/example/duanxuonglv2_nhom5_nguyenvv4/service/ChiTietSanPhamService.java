@@ -7,6 +7,8 @@ package com.example.duanxuonglv2_nhom5_nguyenvv4.service;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.ChiTietSanPham;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.repository.ChiTietSanPhamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +18,11 @@ public class ChiTietSanPhamService implements IChiTietSanPhamService {
 
     @Autowired
     private ChiTietSanPhamRepository repository;
+
+    @Override
+    public Page<ChiTietSanPham> getAllPage(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
 
     @Override
     public List<ChiTietSanPham> getAll() {

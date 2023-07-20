@@ -165,63 +165,6 @@
                style="margin: 0"></a>
         </div>
     </c:if>
-
-    <table class="table table-striped table-hover text-center">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Mã</th>
-            <th scope="col">Số Lượng</th>
-            <th scope="col">Giá Nhập</th>
-            <th scope="col">Giá Bán</th>
-            <th scope="col">Chất Liệu</th>
-            <th scope="col">Sản Phẩm</th>
-            <th scope="col">Màu Sắc</th>
-            <th scope="col">Loại Sản Phẩm</th>
-            <th scope="col">NSX</th>
-            <th scope="col">Kích Cỡ</th>
-            <th scope="col">Thiết Kế</th>
-            <th scope="col">Form Dáng</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${lstCTSP}" var="x">
-            <tr>
-                <td>${x.id}</td>
-                <td>${x.ma}</td>
-                <td>${x.soLuong}</td>
-                <td>${x.giaNhap}</td>
-                <td>${x.giaBan}</td>
-                <td>${x.chatLieu.ten}</td>
-                <td>${x.sanPham.ten}</td>
-                <td>${x.mauSac.ten}</td>
-                <td>${x.loaiSanPham.ten}</td>
-                <td>${x.nsx.ten}</td>
-                <td>${x.kichCo.ten}</td>
-                <td>${x.thietKe.ten}</td>
-                <td>${x.formDang.ten}</td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-    <%--    <nav aria-label="Page navigation example">--%>
-    <%--        <ul class="pagination">--%>
-    <%--            <li class="page-item ${page.getNumber() + 1 > 1 ? '' : 'disabled'}">--%>
-    <%--                <a class="page-link" href="?page=${page.getNumber()}">Previous</a>--%>
-    <%--            </li>--%>
-    <%--            <li class="page-item"><p class="page-link">${page.getNumber() + 1} / ${page.getTotalPages()}</p></li>--%>
-    <%--            <c:forEach begin="0" end="${page.totalPages -1}" varStatus="loop">--%>
-    <%--                <li class="page-item">--%>
-    <%--                    <a class="page-link" href="?page=${loop.begin + loop.count}">--%>
-    <%--                            ${loop.begin + loop.count }--%>
-    <%--                    </a>--%>
-    <%--                </li>--%>
-    <%--            </c:forEach>--%>
-    <%--            <li class="page-item ${page.getNumber() + 1 lt page.getTotalPages() ? '' : 'disabled'}">--%>
-    <%--                <a class="page-link" href="?page=${page.getNumber() + 2}">Next</a>--%>
-    <%--            </li>--%>
-    <%--        </ul>--%>
-    <%--    </nav>--%>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
