@@ -2,6 +2,10 @@
  * Copyright (c) 2023. Nyaruko.
  */
 
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
 
 USE DuAnXuongLv2_Nhom5_NguyenVV4
 GO
@@ -210,7 +214,7 @@ insert into chi_tiet_san_pham (ma, mo_Ta, so_luong, gia_nhap, gia_ban, gia_sau_k
 insert into chi_tiet_san_pham (ma, mo_Ta, so_luong, gia_nhap, gia_ban, gia_sau_khi_giam, ngay_tao, ngay_sua, trang_thai, id_chat_lieu, id_san_pham, id_mau_sac, id_loai_san_pham, id_nsx, id_kich_co, id_thiet_ke, id_form_dang) values ('CTSP2', N'Áo này đẹp quá', 268, 171, 366, 238, '2004-09-01', '2012-08-05', 1, 2, 2, 2, 2, 2, 2, 2, 2);
 insert into chi_tiet_san_pham (ma, mo_Ta, so_luong, gia_nhap, gia_ban, gia_sau_khi_giam, ngay_tao, ngay_sua, trang_thai, id_chat_lieu, id_san_pham, id_mau_sac, id_loai_san_pham, id_nsx, id_kich_co, id_thiet_ke, id_form_dang) values ('CTSP3', N'Áo này mặc vào là tùm lum', 298, 545, 610, 161, '2020-06-24', '2003-08-19', 1, 3, 3, 3, 3, 3, 3, 3, 3);
 insert into chi_tiet_san_pham (ma, mo_Ta, so_luong, gia_nhap, gia_ban, gia_sau_khi_giam, ngay_tao, ngay_sua, trang_thai, id_chat_lieu, id_san_pham, id_mau_sac, id_loai_san_pham, id_nsx, id_kich_co, id_thiet_ke, id_form_dang) values ('CTSP4', N'Ảo này dảk quá', 63, 669, 493, 323, '2011-11-28', '2014-04-06', 1, 4, 4, 4, 4, 4, 4, 4, 4);
-insert into chi_tiet_san_pham (ma, mo_Ta, so_luong, gia_nhap, gia_ban, gia_sau_khi_giam, ngay_tao, ngay_sua, trang_thai, id_chat_lieu, id_san_pham, id_mau_sac, id_loai_san_pham, id_nsx, id_kich_co, id_thiet_ke, id_form_dang) values ('CTSP5', N'Áo này vừa khít', 291, 493, 588, 528, '2018-11-11', '2016-03-09', 2, 5, 5, 5, 5, 5, 5, 5, 5);
+insert into chi_tiet_san_pham (ma, mo_Ta, so_luong, gia_nhap, gia_ban, gia_sau_khi_giam, ngay_tao, ngay_sua, trang_thai, id_chat_lieu, id_san_pham, id_mau_sac, id_loai_san_pham, id_nsx, id_kich_co, id_thiet_ke, id_form_dang) values ('CTSP5', N'Áo này vừa khít', 291, 493, 588, 528, '2018-11-11', '2016-03-09', 1, 5, 5, 5, 5, 5, 5, 5, 5);
 
 
 

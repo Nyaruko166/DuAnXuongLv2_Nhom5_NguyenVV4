@@ -65,23 +65,10 @@
                     <h4 class="page-title">Quản Trị Chi Tiết Sản Phẩm</h4>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
-                    <form action="/ctsp/import" method="post" enctype="multipart/form-data">
-                        <div class="row">
-<%--                            <label for="excel" class="form-label" style="font-weight: bold">Excel: </label>--%>
-                            <div class="col-6">
-                                <input type="file" class="form-control" id="excel" name="excel" value="hate my life"
-                                       accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-                            </div>
-                            <div class="col-6">
-                                <button type="submit" title="Ấn vào để chọn file excel để import"
-                                        class="btn btn-success">Import From Excel
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <a href="/ctsp/view-add" class="btn btn-info text-center" title="Ấn vào để chuyển sang trang tạo sản phẩm">
+                    <a href="/ctsp/view-add" class="btn btn-primary text-center"
+                       title="Ấn vào để chuyển sang trang tạo sản phẩm" style="margin-left: 100px">
                         <i class="fa-solid fa-plus"></i>Tạo Sản Phẩm
                     </a>
                 </div>
@@ -102,6 +89,9 @@
                 <div class="col-sm-12">
                     <div class="white-box">
                         <h3 class="box-title">
+                        </h3>
+                        <%--                        <p class="text-muted">Add class <code>.table</code></p>--%>
+                        <div class="table-responsive">
                             <c:if test="${not empty mess}">
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <strong>${mess}</strong>
@@ -117,9 +107,6 @@
                                        style="margin: 0"></a>
                                 </div>
                             </c:if>
-                        </h3>
-                        <%--                        <p class="text-muted">Add class <code>.table</code></p>--%>
-                        <div class="table-responsive">
                             <table class="table text-nowrap text-center">
                                 <thead>
                                 <tr>
@@ -142,7 +129,12 @@
                                         <td>${x.soLuong}</td>
                                         <td>${x.giaBan}</td>
                                         <td>${x.ngayTao}</td>
-                                        <td>${x.trangThai}</td>
+                                        <c:if test="${x.trangThai == 1}">
+                                            <td><a href="" class="btn btn-info">Kinh Doanh</a></td>
+                                        </c:if>
+                                        <c:if test="${x.trangThai == 0}">
+                                            <td><a href="#" class="btn btn-danger">Ngừng Kinh Doanh</a></td>
+                                        </c:if>
                                         <td>
                                             <a href="/ctsp/detail/${x.id}">
                                                 <i class="fa-solid fa-circle-info"></i>

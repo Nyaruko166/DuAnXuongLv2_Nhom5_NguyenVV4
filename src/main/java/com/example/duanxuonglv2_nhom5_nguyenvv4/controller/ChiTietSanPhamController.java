@@ -4,7 +4,7 @@
 
 package com.example.duanxuonglv2_nhom5_nguyenvv4.controller;
 
-import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.ChiTietSanPham;
+import com.example.duanxuonglv2_nhom5_nguyenvv4.entity.*;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.repository.*;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.service.IChiTietSanPhamService;
 import com.example.duanxuonglv2_nhom5_nguyenvv4.utils.ExcelUtil;
@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.util.List;
@@ -63,28 +64,33 @@ public class ChiTietSanPhamController {
         pageCTSP = chiTietSanPhamService.getAllPage(pageable);
 
         model.addAttribute("page", pageCTSP);
-//        List<ChatLieu> lstCL = chatLieuRepository.findAll();
-//        List<FormDang> lstFD = formDangRepository.findAll();
-//        List<KichCo> lstKC = kichCoRepository.findAll();
-//        List<LoaiSanPham> lstLoai = loaiSanPhamRepository.findAll();
-//        List<MauSac> lstMS = mauSacRepository.findAll();
-//        List<NSX> lstNSX = nsxRepository.findAll();
-//        List<SanPham> lstSP = sanPhamRepository.findAll();
-//        List<ThietKe> lstTK = thietKeRepository.findAll();
-//        model.addAttribute("ctsp", new ChiTietSanPham());
-//        model.addAttribute("lstCL", lstCL);
-//        model.addAttribute("lstFD", lstFD);
-//        model.addAttribute("lstKC", lstKC);
-//        model.addAttribute("lstLoai", lstLoai);
-//        model.addAttribute("lstMS", lstMS);
-//        model.addAttribute("lstNSX", lstNSX);
-//        model.addAttribute("lstSP", lstSP);
-//        model.addAttribute("lstTK", lstTK);
         return "quan-tri/san-pham/ctsp";
     }
 
+    @GetMapping("/view-add")
+    public String viewAdd(Model model) {
+        List<ChatLieu> lstCL = chatLieuRepository.findAll();
+        List<FormDang> lstFD = formDangRepository.findAll();
+        List<KichCo> lstKC = kichCoRepository.findAll();
+        List<LoaiSanPham> lstLoai = loaiSanPhamRepository.findAll();
+        List<MauSac> lstMS = mauSacRepository.findAll();
+        List<NSX> lstNSX = nsxRepository.findAll();
+        List<SanPham> lstSP = sanPhamRepository.findAll();
+        List<ThietKe> lstTK = thietKeRepository.findAll();
+        model.addAttribute("ctsp", new ChiTietSanPham());
+        model.addAttribute("lstCL", lstCL);
+        model.addAttribute("lstFD", lstFD);
+        model.addAttribute("lstKC", lstKC);
+        model.addAttribute("lstLoai", lstLoai);
+        model.addAttribute("lstMS", lstMS);
+        model.addAttribute("lstNSX", lstNSX);
+        model.addAttribute("lstSP", lstSP);
+        model.addAttribute("lstTK", lstTK);
+        return "quan-tri/san-pham/view-add-ctsp";
+    }
+
     @PostMapping("/add")
-    public String add(Model model, @ModelAttribute("ctsp") ChiTietSanPham ctsp) {
+    public String add(Model model, @ModelAttribute("ctsp") ChiTietSanPham ctsp, RedirectAttributes mess) {
 
         java.util.Date date = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
@@ -93,22 +99,22 @@ public class ChiTietSanPhamController {
         ctsp.setNgaySua(sqlDate);
 
         chiTietSanPhamService.save(ctsp);
-
-        model.addAttribute("mess", "Thêm thành công!");
+        mess.addFlashAttribute("mess", "Thêm thành công");
+//        model.addAttribute("mess", "Thêm thành công!");
         return "redirect:/ctsp";
     }
 
     @PostMapping("/import")
-    public String importExcel(Model model, @RequestParam("excel") MultipartFile excelImport) throws IOException {
+    public String importExcel(Model model, @RequestParam("excel") MultipartFile excelImport,RedirectAttributes mess) throws IOException {
         if (excelUtil.validateExcel(excelImport)) {
             String fileName = StringUtils.cleanPath(excelImport.getOriginalFilename());
             excelUtil.copyFile(excelImport, fileName);
             String path = "./src/main/webapp/uploads/" + fileName;
             List<ChiTietSanPham> lstCTSP = excelUtil.readExcel(path);
             chiTietSanPhamService.saveAll(lstCTSP);
-            model.addAttribute("mess", "Import từ excel thành công!!");
+            mess.addFlashAttribute("mess", "Import từ excel thành công!!");
         } else {
-            model.addAttribute("err", "File sai định dạng!!");
+            mess.addFlashAttribute("err", "File sai định dạng!!");
         }
         return "redirect:/ctsp";
     }
