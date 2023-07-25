@@ -19,11 +19,16 @@ import java.util.Base64;
 @Component
 public class QRUtil {
 
+    String uploadsPath = "./src/main/webapp/uploads";
     String path = "./src/main/webapp/uploads/qrcode";
 
     public String generateQR(String data, String fileName) {
         String pathQR = path + "/" + fileName + ".png";
+        File upLoadDir = new File(uploadsPath);
         File qrFolder = new File(path);
+        if (!upLoadDir.exists()){
+            upLoadDir.mkdir();
+        }
         if (!qrFolder.exists()) {
             qrFolder.mkdir();
         }
