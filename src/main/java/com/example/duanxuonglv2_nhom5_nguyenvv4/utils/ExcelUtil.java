@@ -61,8 +61,12 @@ public class ExcelUtil {
 
     public void copyFile(MultipartFile file, String fileName) {
         try {
-            String uploadDir = "./src/main/webapp/uploads";
-            Path path = Paths.get(uploadDir);
+            String uploadPath = "./src/main/webapp/uploads";
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdir();
+            }
+            Path path = Paths.get(uploadPath);
             try (InputStream inputStream = file.getInputStream()) {
                 Path filePath = path.resolve(fileName);
                 Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);

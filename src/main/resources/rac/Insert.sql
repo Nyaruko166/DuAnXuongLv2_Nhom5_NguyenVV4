@@ -2,6 +2,10 @@
  * Copyright (c) 2023. Nyaruko.
  */
 
+/*
+ * Copyright (c) 2023. Nyaruko.
+ */
+
 
 /*
  * Copyright (c) 2023. Nyaruko.
@@ -11,7 +15,7 @@
 USE DuAnXuongLv2_Nhom5_NguyenVV4
 GO
 
---UPDATE 16:16AP  24/6/2023
+--UPDATE 1:01AM  26/7/2023
 
 insert into tai_khoan (ma, ten, ngay_sinh, email, so_dien_thoai, mat_khau, gioi_tinh, ngay_tao, ngay_sua, trang_thai) values ('TK1', N'Huy', '2003-10-18', 'trankine0@cdbaby.com', '1492069833', '123456', 1, '2021-11-20', '2020-07-29', 1);
 insert into tai_khoan (ma, ten, ngay_sinh, email, so_dien_thoai, mat_khau, gioi_tinh, ngay_tao, ngay_sua, trang_thai) values ('TK2', N'Toàn', '2021-07-30', 'knickless1@infoseek.co.jp', '9785388115', '123456', 0, '2005-07-17', '2010-01-29', 2);
