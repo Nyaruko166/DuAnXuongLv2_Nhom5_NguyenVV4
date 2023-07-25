@@ -13,6 +13,7 @@ import java.util.List;
 public interface IChiTietSanPhamService {
 
     Page<ChiTietSanPham> getAllPage(Pageable pageable);
+    ChiTietSanPham findById(Integer idSP);
 
     List<ChiTietSanPham> getAll();
 

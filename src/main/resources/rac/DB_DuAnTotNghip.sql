@@ -6,16 +6,11 @@
  * Copyright (c) 2023. Nyaruko.
  */
 
-/*
- * Copyright (c) 2023. Nyaruko.
- */
+CREATE DATABASE DuAnXuongLv2_Nhom5_NguyenVV4
+GO
 
-
---CREATE DATABASE DuAnXuongLv2_Nhom5_NguyenVV4
---GO
-
---USE [DuAnXuongLv2_Nhom5_NguyenVV4]
---GO
+USE [DuAnXuongLv2_Nhom5_NguyenVV4]
+GO
 /****** Object:  Table [dbo].[anh]    Script Date: 6/24/2023 12:40:37 PM ******/
 SET ANSI_NULLS ON
 GO

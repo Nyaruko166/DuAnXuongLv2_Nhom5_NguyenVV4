@@ -2,6 +2,7 @@
  * Copyright (c) 2023. Nyaruko.
  */
 
+
 /*
  * Copyright (c) 2023. Nyaruko.
  */
@@ -239,18 +240,18 @@ select * from giam_gia_chi_tiet
 
 
 
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV1', N'Khánh', '2000-06-18', 1, N'Nghệ An', '9247042038', 'bsonger0@amazon.co.jp', 1, 1, 1);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV2', N'Nghĩa', '1995-12-22', 1, N'Bắc Ninh', '7871284967', 'rlenton1@netscape.com', 1, 2, 2);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV1', N'Quân', '2003-06-01', 1, N'Hà Nội', '0936163632', 'quanpmph27325@fpt.edu.vn', 1, 1, 2);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV2', N'Nghĩa', '1995-12-22', 1, N'Bắc Ninh', '7871284967', 'rlenton1@netscape.com', 1, 0, 1);
 insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV3', N'Linh', '8/29/2001', 0, N'Cà Mau', 1, 'jpaybody0@virginia.edu', 1, 1, 1);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV4', N'Lợi', '5/19/2000', 0, N'Cà Mau', 2, 'lmound1@toplist.cz', 2, 1, 2);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV5', N'Khang', '2/4/2000', 0, N'Thanh Hóa', 3, 'tswithenby2@unesco.org', 3, 0, 3);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV6', N'Dương', '10/14/1998', 0, N'Vĩnh Phúc', 4, 'msomerled3@nhs.uk', 4, 1, 4);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV7', N'Lương', '7/10/1999', 1, N'Bắc Giang', 5, 'fdiiorio4@ehow.com', 5, 1, 5);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV8', N'Huệ', '8/10/2001', 1, N'Thái Bình', 6, 'emuldrew5@elpais.com', 6, 0, 6);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV9', N'Linh', '10/6/1997', 1, N'Thanh Hóa', 7, 'dheckner6@pcworld.com', 7, 1, 7);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV10', N'Dũng', '10/17/1997', 0, N'TP Hồ Chí Minh', 8, 'lpinniger7@last.fm', 8, 0, 8);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV11', N'Linh', '2/12/2000', 0, N'TP Hồ Chí Minh', 9, 'mbadder8@blogspot.com', 9, 0, 9);
-insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV12', N'Dũng', '12/15/1999', 1, N'Thái Bình', 10, 'tmarte9@amazon.com', 10, 1, 10);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV4', N'Lợi', '5/19/2000', 0, N'Cà Mau', 2, 'lmound1@toplist.cz', 2, 1, 1);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV5', N'Khang', '2/4/2000', 0, N'Thanh Hóa', 3, 'tswithenby2@unesco.org', 3, 0, 1);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV6', N'Dương', '10/14/1998', 0, N'Vĩnh Phúc', 4, 'msomerled3@nhs.uk', 4, 1, 1);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV7', N'Lương', '7/10/1999', 1, N'Bắc Giang', 5, 'fdiiorio4@ehow.com', 5, 1, 1);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV8', N'Huệ', '8/10/2001', 1, N'Thái Bình', 6, 'emuldrew5@elpais.com', 6, 0, 1);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV9', N'Linh', '10/6/1997', 1, N'Thanh Hóa', 7, 'dheckner6@pcworld.com', 7, 1, 1);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV10', N'Dũng', '10/17/1997', 0, N'TP Hồ Chí Minh', 8, 'lpinniger7@last.fm', 8, 0, 1);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV11', N'Linh', '2/12/2000', 0, N'TP Hồ Chí Minh', 9, 'mbadder8@blogspot.com', 9, 0, 1);
+insert into nhan_vien (ma, ten, ngay_sinh, gioi_tinh, dia_chi, so_dien_thoai, email, mat_khau, trang_thai, id_chuc_vu) values ('NV12', N'Dũng', '12/15/1999', 1, N'Thái Bình', 10, 'tmarte9@amazon.com', 10, 1, 1);
 
 select * from nhan_vien
 

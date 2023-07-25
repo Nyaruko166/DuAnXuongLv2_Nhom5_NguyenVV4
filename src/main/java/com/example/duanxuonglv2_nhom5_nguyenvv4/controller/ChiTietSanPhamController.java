@@ -69,24 +69,17 @@ public class ChiTietSanPhamController {
 
     @GetMapping("/view-add")
     public String viewAdd(Model model) {
-        List<ChatLieu> lstCL = chatLieuRepository.findAll();
-        List<FormDang> lstFD = formDangRepository.findAll();
-        List<KichCo> lstKC = kichCoRepository.findAll();
-        List<LoaiSanPham> lstLoai = loaiSanPhamRepository.findAll();
-        List<MauSac> lstMS = mauSacRepository.findAll();
-        List<NSX> lstNSX = nsxRepository.findAll();
-        List<SanPham> lstSP = sanPhamRepository.findAll();
-        List<ThietKe> lstTK = thietKeRepository.findAll();
+        fetchList(model);
         model.addAttribute("ctsp", new ChiTietSanPham());
-        model.addAttribute("lstCL", lstCL);
-        model.addAttribute("lstFD", lstFD);
-        model.addAttribute("lstKC", lstKC);
-        model.addAttribute("lstLoai", lstLoai);
-        model.addAttribute("lstMS", lstMS);
-        model.addAttribute("lstNSX", lstNSX);
-        model.addAttribute("lstSP", lstSP);
-        model.addAttribute("lstTK", lstTK);
         return "quan-tri/san-pham/view-add-ctsp";
+    }
+
+    @GetMapping("/detail/{id}")
+    public String viewDetail(Model model, @PathVariable("id") Integer idSP) {
+
+        fetchList(model);
+        model.addAttribute("ctsp", chiTietSanPhamService.findById(idSP));
+        return "quan-tri/san-pham/detail-ctsp";
     }
 
     @PostMapping("/add")
@@ -100,12 +93,11 @@ public class ChiTietSanPhamController {
 
         chiTietSanPhamService.save(ctsp);
         mess.addFlashAttribute("mess", "Thêm thành công");
-//        model.addAttribute("mess", "Thêm thành công!");
         return "redirect:/ctsp";
     }
 
     @PostMapping("/import")
-    public String importExcel(Model model, @RequestParam("excel") MultipartFile excelImport,RedirectAttributes mess) throws IOException {
+    public String importExcel(Model model, @RequestParam("excel") MultipartFile excelImport, RedirectAttributes mess) throws IOException {
         if (excelUtil.validateExcel(excelImport)) {
             String fileName = StringUtils.cleanPath(excelImport.getOriginalFilename());
             excelUtil.copyFile(excelImport, fileName);
@@ -117,5 +109,25 @@ public class ChiTietSanPhamController {
             mess.addFlashAttribute("err", "File sai định dạng!!");
         }
         return "redirect:/ctsp";
+    }
+
+    //Fetch list cho nhanh
+    private void fetchList(Model model) {
+        List<ChatLieu> lstCL = chatLieuRepository.findAll();
+        List<FormDang> lstFD = formDangRepository.findAll();
+        List<KichCo> lstKC = kichCoRepository.findAll();
+        List<LoaiSanPham> lstLoai = loaiSanPhamRepository.findAll();
+        List<MauSac> lstMS = mauSacRepository.findAll();
+        List<NSX> lstNSX = nsxRepository.findAll();
+        List<SanPham> lstSP = sanPhamRepository.findAll();
+        List<ThietKe> lstTK = thietKeRepository.findAll();
+        model.addAttribute("lstCL", lstCL);
+        model.addAttribute("lstFD", lstFD);
+        model.addAttribute("lstKC", lstKC);
+        model.addAttribute("lstLoai", lstLoai);
+        model.addAttribute("lstMS", lstMS);
+        model.addAttribute("lstNSX", lstNSX);
+        model.addAttribute("lstSP", lstSP);
+        model.addAttribute("lstTK", lstTK);
     }
 }

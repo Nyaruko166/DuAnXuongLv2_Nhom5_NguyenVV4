@@ -25,6 +25,11 @@ public class ChiTietSanPhamService implements IChiTietSanPhamService {
     }
 
     @Override
+    public ChiTietSanPham findById(Integer idSP) {
+        return repository.findById(idSP).orElse(null);
+    }
+
+    @Override
     public List<ChiTietSanPham> getAll() {
         return repository.findAll();
     }
