@@ -21,37 +21,12 @@
           content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
     <title>Chi Tiết Sản Phẩm</title>
-    <style>
-        /* CSS để căn giữa popup */
-        #popup {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-            max-width: 90%; /* Tối đa chiều rộng của pop-up */
-        }
-
-        /* CSS để thay đổi kích thước ảnh QR code */
-        #qrCodeImage {
-            max-width: 100%; /* Tối đa chiều rộng ảnh là 100% của popup */
-            height: auto; /* Chiều cao tự động theo tỉ lệ của ảnh */
-        }
-
-        /* CSS cho nút Download và Close */
-        #downloadButton, #closeButton {
-            margin: 10px; /* Khoảng cách giữa nút và các phần tử khác */
-        }
-
-    </style>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/"/>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/resource/plugins/images/favicon.png">
     <!-- Custom CSS -->
     <link href="/resource/css/style.min.css" rel="stylesheet">
+    <link href="/resource/css/popup.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -268,8 +243,8 @@
             <div id="popup">
                 <img src="data:image/png;base64,${qrCodeImage}" alt="QR Code" id="qrCodeImage">
                 <br>
-                <a href="#" id="downloadButton" onclick="downloadQRCode()" class="btn btn-success">Download<i class="fa-solid fa-arrow-down"></i></a>
-                <button id="closeButton" onclick="hidePopup()" class="btn btn-secondary">Close<i class="fa-solid fa-xmark"></i></button>
+                <a href="#" id="downloadButton" onclick="downloadQRCode()" class="btn btn-success">Download <i class="fa-solid fa-arrow-down"></i></a>
+                <button id="closeButton" onclick="hidePopup()" class="btn btn-secondary">Close <i class="fa-solid fa-xmark"></i></button>
             </div>
             <!-- ============================================================== -->
             <!-- End PAge Content -->
@@ -297,49 +272,7 @@
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
 </div>
-<script>
-
-    const toastTrigger = document.getElementById('liveToastBtn')
-    const toastLiveExample = document.getElementById('liveToast')
-
-    if (toastTrigger) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-        toastTrigger.addEventListener('click', () => {
-            toastBootstrap.show()
-        })
-    }
-
-    function showPopup() {
-        const popup = document.getElementById('popup');
-        popup.style.display = 'block';
-
-        // Lấy chiều rộng và chiều cao của pop-up
-        const popupWidth = popup.offsetWidth;
-        const popupHeight = popup.offsetHeight;
-
-        // Lấy chiều rộng của cửa sổ trình duyệt
-        const windowWidth = window.innerWidth;
-
-        // Xác định toạ độ left cho pop-up
-        let popupLeft = windowWidth - popupWidth - 20; // Để cách mép phải 20px
-        popup.style.left = popupLeft + 'px';
-    }
-
-    function hidePopup() {
-        document.getElementById('popup').style.display = 'none';
-    }
-
-    function downloadQRCode() {
-        // Lấy base64 của ảnh
-        const base64Image = document.getElementById('qrCodeImage').getAttribute('src').split(',')[1];
-
-        // Tạo link tải xuống
-        const a = document.createElement('a');
-        a.href = 'data:image/png;base64,' + base64Image;
-        a.download = 'qrcode.png';
-        a.click();
-    }
-</script>
+<script src="/resource/js/popup.js"></script>
 <script src="/resource/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/resource/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/resource/s/app-style-switcher.js"></script>
